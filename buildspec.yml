@@ -29,10 +29,10 @@ phases:
       - echo Pushing the Docker image...
 
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:members-$IMAGE_TAG
-      - printf '[{"name":"members","imageUri":"%s"}' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:members-$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"members","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:members-$IMAGE_TAG > imagedefinitions.json
 
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:hsproducts-$IMAGE_TAG
-      - printf ',{"name":"hsproducts","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:hsproducts-$IMAGE_TAG >> imagedefinitions.json
+      - printf ',{"name":"hsproducts","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:hsproducts-$IMAGE_TAG >> imagedefinitions2.json
 
 artifacts:
     files: imagedefinitions.json
